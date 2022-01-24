@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="sw2go">
+    <title>Comportjs</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <input  id="scanResult" type="text" class="scan-result"  >
+    <button id="sendButton">Send</button>
+
+    <!-- The Modal -->
+    <div id="scanModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="sourceSelectPanel">
+          <label for="sourceSelect">Change video source:</label>
+          <select id="sourceSelect" >
+          </select>
+        </div>
+        <div>
+          <video id="video" width="100%" style="border: 1px solid gray"></video>
+        </div>
+      </div>
+    </div>
+
+    <main class="wrapper" style="padding-top:2em">
+
+      <section class="container" id="demo-content">
+
+      </section>
+
+      <footer class="footer">
+      </footer>
+
+    </main>
+  <!--
+    <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest"></script>
+  -->
+
+    <script type="text/javascript" src="./script.js"></script>
+    <script type="text/javascript">
+      window.addEventListener('load', function () {
+
+		  if ("serial" in navigator) {
+			alert("serial is supported");
+		  }
+	 
+		  document.getElementById("sendButton").onclick = function() {
+			
+		  };
+
+      });
+    </script>
+
+  </body>
+
+</html>
