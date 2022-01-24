@@ -148,8 +148,14 @@
 				errorMsg(error);
 			}
 		  } else {
-			document.getElementById("supported").style.display = 'none';
-			errorMsg("Serial USB ist not supported with this browser or operating system");			
+		  
+		  	document.getElementById("supported").style.display = 'none';
+		  
+			if ("usb" in navigator) {
+				errorMsg("WebUSB is supported, Serial USB ist not supported with this browser or operating system");								
+			} else {
+				errorMsg("WebUSB as well as Serial USB ist not supported with this browser or operating system");			
+			}
 		  }
 	 
       });
