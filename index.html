@@ -111,8 +111,8 @@
 								parity: document.getElementById("parity").value,
 								flowControl: document.getElementById("flowControl").value
 							}
-												
-							await port.open(options);
+							await port.open({baudRate: 115200});					
+							//await port.open(options);
 							document.getElementById("connectedPort").style.display = 'block';
 							connectPortButton.textContent = "Disconnect";
 							
