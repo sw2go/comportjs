@@ -66,11 +66,11 @@
     <script type="text/javascript" src="./script.js"></script>
     <script type="text/javascript">
 	
-	  var serial = exports.serial;
-	  
       window.addEventListener('load', function () {
+	  
+		  var serial = ("serial" in navigator) ? navigator.serial : exports.serial;
 
-		  if ("serial" in navigator) {
+		  if (serial) {
 		  
 			document.getElementById("supported").style.display = 'block';
 		  
@@ -78,7 +78,7 @@
 			
 				document.getElementById("selectPortButton").onclick = async function() {
 			
-					const port = await navigator.serial.requestPort();
+					const port = await serial.requestPort();
 					const { usbProductId, usbVendorId } = port.getInfo();					
 					document.getElementById("portTitle").textContent = "Port " + usbProductId + " " + usbVendorId;					
 					document.getElementById("selectedPort").style.display = 'block';

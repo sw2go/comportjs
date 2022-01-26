@@ -34,7 +34,7 @@
 <script src="./serial.js"></script>
 
 <script>
-  var serial = exports.serial;
+  var serial = ("serial" in navigator) ? navigator.serial : exports.serial;
 
   var mySerial;
   let receivedText = '';
