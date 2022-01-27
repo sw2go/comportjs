@@ -111,8 +111,8 @@
 								parity: document.getElementById("parity").value,
 								flowControl: document.getElementById("flowControl").value
 							}
-							await port.open({baudRate: 115200});					
-							//await port.open(options);
+							await port.open({baudRate: 115200});	// strange dass das auf Handy und PC geht (ev Ursache, handy nimmt polyfill)				
+							//await port.open(options);			    // aber das nur auf PC
 							document.getElementById("connectedPort").style.display = 'block';
 							connectPortButton.textContent = "Disconnect";
 							
