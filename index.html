@@ -105,14 +105,17 @@
 							connectPortButton.textContent = "...";
 														
 							const options = {
-								baudRate: document.getElementById("baudRate").value,
-								dataBits: document.getElementById("dataBits").value,
-								stopBits: document.getElementById("stopBits").value,
+								baudRate: parseInt(document.getElementById("baudRate").value, 10),
+								dataBits: parseInt(document.getElementById("dataBits").value,10),
+								stopBits: parseInt(document.getElementById("stopBits").value,10),
 								parity: document.getElementById("parity").value,
 								flowControl: document.getElementById("flowControl").value
 							}
-							await port.open({baudRate: 115200});	// strange dass das auf Handy und PC geht (ev Ursache, handy nimmt polyfill)				
-							//await port.open(options);			    // aber das nur auf PC
+							
+							console.log(options);
+							
+							//await port.open({baudRate: 115200});	// strange dass das auf Handy und PC geht (ev Ursache, handy nimmt polyfill)				
+							await port.open(options);			    // aber das nur auf PC
 							document.getElementById("connectedPort").style.display = 'block';
 							connectPortButton.textContent = "Disconnect";
 							
